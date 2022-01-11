@@ -1,0 +1,123 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Tiket</title>
+    <style>
+        .center{
+            position: center;
+           background-image: url(..//images/Kasir\ jogja.jpg);
+           background-size: cover;
+           font: 1em sans-serif;
+           font-style: unset;
+           color: black;
+           width:auto;
+           height:auto;
+        }
+         
+    </style>
+</head>
+<body class="center" bgcolor="gray">
+    <script language="JavaScript">
+        function hitung()
+        { var hari=(document.dedeform.ihari.value);
+          var bayar=(document.dedeform.ibayar.value);
+          var menu=(document.dedeform.imenu.value);
+          var jumlah=parseFloat(document.dedeform.ijumlah.value);
+          var membayar=(document.dedeform.imembayar.value);
+          var um="0.0";
+          var tarif=0.0;
+          var bayar=0.0;
+          var diskon=0.0;
+
+          if (menu=="Sate"){
+              tarif=jumlah*15000;
+              menu ="Sate"
+          }else if(menu=="Gudeg"){
+              tarif=jumlah*25000
+              menu="Gudeg";
+          }else if(menu=="Soto"){
+              tarif=jumlah*20000
+              menu="Soto";
+          }else if(menu=="Nasi Goreng"){
+              tarif=jumlah*18000
+              menu="Nasi Goreng";
+          }else if(menu=="Jus Jeruk"){
+              tarif=jumlah*10000
+              menu="Jus Jeruk";
+          }else if(menu=="Teh Manis"){
+              tarif=jumlah*8000
+              menu="Teh Manis";
+          }else if(menu=="Es cendol"){
+              tarif=jumlah*8000
+              menu="Es Cendol";
+          }else if(menu=="Sop Buah"){
+              tarif=jumlah*11000
+              menu="Sop Buah";
+          }
+          
+          if (hari=="Senin"){
+              if (jumlah){
+                  diskon=0.35*tarif;
+              }else if (jumlah){
+                tarif*jumlah;
+              }
+          }else if(hari=="Sabtu"){
+              if (jumlah){
+                  diskon=0.30*tarif
+              }else if (jumlah){
+                  tarif*jumlah;
+              }
+            }else if(hari=="Minggu"){
+              if (jumlah){
+                  diskon=0.30*tarif
+              }else if (jumlah){
+                  tarif*jumlah;
+              }
+          }
+
+          bayar = tarif-diskon;
+          total = bayar; 
+          kembalian = membayar-total;
+
+          document.dedeform.ohari.value=hari;
+          document.dedeform.omenu.value=menu;
+          document.dedeform.obayar.value=bayar;
+          document.dedeform.odiskon.value=(diskon);
+          document.dedeform.total.value=(total);
+          document.dedeform.kembalian.value=(kembalian);
+        }
+        </script>
+        <center>
+            <form name="dedeform">
+            <pre>
+              <h1>Destinasi Wisata Jogja (Destinasi Pendopo Lawas)</h1> 
+              <marquee scrolldelay="70" direction="left" bgcolor="steelblue"> > Selamat datang di Destinasi Wisata Jogja & Selamat Menikmati Destinasi Anda< </marquee>
+              <h2>Masukan Pesanan Makanan/Minuman Anda!
+             Hari               : <input type="text" name="ihari" placeholder="Masukan Hari">
+             Menu               : <input type="text" name="imenu" placeholder="Masukan Menu">
+             Jumlah             : <input type="text" name="ijumlah" placeholder="Masukan Jumlah">
+             Harga Menu         : <input type="number" name="ibayar" placeholder="Masukan Harga Menu">
+             Membayar           : <input type="number" name="imembayar" placeholder="Masukan Total Tarif">
+             <input type="button" value ="kirim" OnClick="hitung()">
+             <input type="reset" value ="reset">
+              </h2>
+           
+             <hr>
+             <h1>Destinasi Wisata Jogja (Destinasi Pendopo Lawas)</h1> 
+             <h2>Selamat anda telah memesan makanan/minuman yg anda pilih di Pandopo Lawas :
+             Hari       : <input type="text" name="ohari" placeholder="Hari">
+             Menu       : <input type="text" name="omenu" placeholder="Menu">
+             Diskon     : <input type="text" name="odiskon" placeholder="Diskon Harga Untuk Pelanggan">
+             Bayar       : <input type="text" name="obayar" placeholder="Pembayaran"> 
+             Total      : <input type="text" name="total" placeholder="Total">
+             Kembalian  : <input type="text" name="kembalian" placeholder="Kembalian Uang Pelanggan">
+             </h2>
+             <marquee scrolldelay="70" direction="left" bgcolor="steelblue"> > Terima Kasih Telah Memesan Makanan & Minuman di Pandopo Lawas & Jangan Lupa Untuk Kembali Berkunjung !< </marquee>
+             </pre>
+             </form>
+             </center>>
+</body>
+</html>

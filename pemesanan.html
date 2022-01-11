@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tengah{
+                  background-image:url(../images/kasir.jpg);
+                  background-position:center;
+                  width:auto;
+                  height:auto;
+               
+              }
+        
+      
+        table{
+         background: gray;
+         margin:auto;
+      
+        }
+      
+        
+       </style>
+</head>
+<body>
+    <body class="tengah">
+        <div>
+         
+         <table border="1">
+          <h2 align="center" style="background: gray">Kasir Al-farizy</h2>
+          <tr>    
+           <th>Nama Pelanggan</th>
+           <th><input type="text"  id="nama" onchange="total()" ></th>
+          </tr>
+          
+          <tr>    
+            <th>Hari</th>    
+            <th><input type="text" id="hari"  value="" onchange="total()"></th>
+          </tr>
+       
+          <tr>    
+           <th>Total Pesanan</th>    
+           <th><input type="number" id="jumlah"  value="0" onchange="total()"></th>
+          </tr>
+          
+          <tr>    
+           <th>Opsi Menu</th>
+           <th><select id="status" onchange="total()">
+          <option>1.Sate Rp.15.000,00</option>
+          <option>2.Gudeg Rp.25.000,00</option>
+          <option>3.Soto Rp.20.000,00</option>
+          <option>4.Nasi Goreng Rp.18.000,00</option>
+          <option>5.Jus Jeruk Rp10.000,00</option>
+          <option>6.Teh Manis Rp.8.000,00</option>
+          <option>7.Es Cendol Rp.8.000,00</option>
+          <option>8.Sop Buah Rp.11.000,00</option>
+           </select></th>
+          </tr>
+
+          <tr>    
+            <th>Harga Menu</th>
+            <th><select id="status" onchange="total()">
+           <option>15000</option>
+           <option>25000</option>
+           <option>20000</option>
+           <option>18000</option>
+           <option>10000</option>
+           <option>8000</option>
+           <option>8000</option>
+           <option>11000</option>
+            </select></th>
+           </tr>
+          
+          <tr>    
+           <th>jumlah total</th>
+           <th><input type="text" style="background: yellow" id="total" disabled></th>
+          </tr>
+       
+          <tr>    
+           <th>Pembayaran</th>    
+           <th><input type="number" id="bayar" onchange="total()"></th>
+          </tr>
+          
+          <tr>    
+           <th>Kembalian</th>
+           <th><input type="text" style="background: yellow" id="total1" disabled></th>
+          </tr>
+                
+                   <tr>
+                       <th><input type="button" style="background: white"  onclick="window.print()" value="cetak"></th>
+                   </tr>
+          
+          <tr>   
+           <table width="300" height="201px" border="8">
+           <th><label align="landscape"  id="cetak" ></label></th>
+           </table>
+          </tr>         
+          
+         </table>
+               <marquee scrolldelay="100" direction="left" bgcolor="gray"> > TERIMA KASIH TELAH MENGGUNAKAN PROGRAM INI < </marquee>
+         
+         
+         <script type="text/javascript">
+         
+         function total() {
+          var nama = document.getElementById('Nama').value;
+          var hari =  parseInt(document.getElementById('Hari').value);
+          var total_pesanan =  parseInt(document.getElementById('Total_Pesanan').value);
+          var opsi_menu =  parseInt(document.getElementById('Opsi_Menu').value);
+          var harga_menu =  parseInt(document.getElementById('Harga_Menu').value);
+          var jumlah_harga = harga * jumlah_beli;
+           document.getElementById('total').value = jumlah_harga;
+       
+          var kembali = pembayaran - jumlah_harga;
+           document.getElementById('total1').value = kembali;
+         
+          var cetak = "Nama : "+nama+"</br>"+
+                      "Hari  : "+hari+"</br>"+
+                      "Total_Pesanan  : "+total_pesanan+"</br>"+
+                      "Opsi_Menu   : "+opsi_menu+"</br>"+
+                      "Harga_Menu  : "+harga_menu+"</br>"+
+                      "Jumlah_total  : "+jumlah_total+"</br>"+
+                      "pembayaran  : "+pembayaran+"</br>"+
+                      "Kembalian  : "+kembali;
+           document.getElementById("cetak").innerHTML=cetak;
+         }
+         
+         </script>
+        </div>
+</body>
+</html>
